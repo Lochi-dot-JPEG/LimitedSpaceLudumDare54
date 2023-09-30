@@ -39,31 +39,18 @@ grow_vertical = 2
 
 [node name="AttachPoints" type="Node2D" parent="."]
 
-[node name="Node2D" type="Node2D" parent="AttachPoints"]
-position = Vector2(0, -13)
-scale = Vector2(0.886723, 0.108295)
-
-[node name="Node2D2" type="Node2D" parent="AttachPoints"]
-position = Vector2(13, 0)
-
-[node name="Node2D3" type="Node2D" parent="AttachPoints"]
-position = Vector2(0, 13)
-
-[node name="Node2D4" type="Node2D" parent="AttachPoints"]
-position = Vector2(-13, 0)
-
 [node name="RayCast2D" type="RayCast2D" parent="AttachPoints"]
 position = Vector2(0, 13)
 target_position = Vector2(0, 7)
 
 [node name="RayCast2D2" type="RayCast2D" parent="AttachPoints"]
 position = Vector2(-13, 0)
-target_position = Vector2(0, 7)
+target_position = Vector2(-7, 0)
 
 [node name="RayCast2D3" type="RayCast2D" parent="AttachPoints"]
 position = Vector2(13, 0)
-target_position = Vector2(0, 7)
+target_position = Vector2(7, 0)
 
 [node name="RayCast2D4" type="RayCast2D" parent="AttachPoints"]
-position = Vector2(0, -13)
+position = Vector2(0, -30)
 target_position = Vector2(0, -7)

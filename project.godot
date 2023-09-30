@@ -15,6 +15,16 @@ run/main_scene="res://locations/battlefield.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Stats="*res://scripts/stat_manager.gd"
+
+[display]
+
+window/size/viewport_width=948
+window/size/viewport_height=533
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Limited Space"
@@ -46,3 +56,4 @@ right={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

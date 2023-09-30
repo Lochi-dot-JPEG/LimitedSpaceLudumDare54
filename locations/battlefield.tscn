@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj3emfmsw2iq3"]
+[gd_scene load_steps=3 format=3 uid="uid://bj3emfmsw2iq3"]
 
 [ext_resource type="PackedScene" uid="uid://d0b3i4hxgty3f" path="res://entities/player.tscn" id="1_6vte4"]
+[ext_resource type="Texture2D" uid="uid://u623o4oqgkii" path="res://locations/background.png" id="2_78203"]
 
 [node name="Battlefield" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_6vte4")]
+acceleration = 5
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -400
+position = Vector2(474, 266.5)
+texture = ExtResource("2_78203")
