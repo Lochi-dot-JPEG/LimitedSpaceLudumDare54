@@ -38,10 +38,11 @@ var parts = {
 
 var hp = {
 	"e_melee":14,
-	
+	"supply_crate":9999999,
 }
 
 var player_health = 10
+var crate_reward = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

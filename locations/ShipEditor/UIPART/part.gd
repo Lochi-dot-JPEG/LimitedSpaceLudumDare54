@@ -5,21 +5,25 @@ extends Control
 var held = false
 
 var _snap_from = 80
+@onready var snap_point_parent: Control = $"../Ship/Snap_Points"
 
 var snap_points = []
 var type = "basic"
 var attached_to = null
 
+
 var other_parts = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in get_node("../Ship/Snap_Points").get_children():
+	for i in snap_point_parent.get_children():
 		snap_points.append([i,i.global_position])
+	_scan_for_others()
+
+func _scan_for_others():
+	other_parts = []
 	for i in get_parent().get_children():
-		if i.is_in_group("part") and i != self:
+		if i.is_in_group("part") and i != self and not i.is_queued_for_deletion():
 			other_parts.append(i)
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if held:
@@ -65,3 +69,8 @@ func _on_button_up() -> void:
 	global_position = closest_node.global_position - Vector2(0,24)
 	rotation = global_position.angle_to_point(Vector2(445.5,250)) + PI
 	
+func _attach_to_part(index):
+	global_position = snap_points[index][1] - Vector2(0,24)
+	print(global_position)
+	attached_to = snap_points[index][0]
+	rotation = global_position.angle_to_point(Vector2(445.5,250)) + PI

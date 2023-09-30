@@ -8,10 +8,19 @@ var rotational_velocity = 0
 @export var rotation_speed = 1.0
 @export var part_width = 50
 
+var shoot_timer : Timer
+
 var parts = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	_load_parts()
+	
+	shoot_timer = Timer.new()
+	add_child(shoot_timer)
+	shoot_timer.wait_time = 0.5
+	shoot_timer.connect("timeout",Callable(self,"_shoot"))
+	shoot_timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,7 +65,7 @@ func _load_parts():
 		_point_in += TAU/12
 		parts.append(_new_part)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot"):
-		for i in parts:
-			i._use()
+
+func _shoot():
+	for i in parts:
+		i._use()

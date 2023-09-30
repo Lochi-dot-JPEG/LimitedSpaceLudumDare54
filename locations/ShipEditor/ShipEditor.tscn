@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd3fn0m6xnf0"]
+[gd_scene load_steps=5 format=3 uid="uid://bd3fn0m6xnf0"]
 
 [ext_resource type="Script" path="res://locations/ShipEditor/ShipEditor.gd" id="1_1y200"]
 [ext_resource type="Texture2D" uid="uid://c7jgeasirx6o1" path="res://entities/player/ship.png" id="2_j824b"]
 [ext_resource type="PackedScene" uid="uid://bg4wl7g2ihmqq" path="res://locations/ShipEditor/UIPART/part.tscn" id="3_cuk5q"]
+[ext_resource type="Texture2D" uid="uid://u623o4oqgkii" path="res://locations/background.png" id="4_3e8j4"]
 
 [node name="ShipEditor" type="Control"]
 layout_mode = 3
@@ -272,8 +273,10 @@ grow_vertical = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 335.0
+offset_bottom = 169.0
 text = "Drag ship parts on ship to attach,
 
 If a part isn't attached it will be discarded
@@ -308,5 +311,42 @@ offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Continue Game"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -50.5
+offset_right = -41.0
+offset_bottom = 57.5
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.639216, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -65
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.611765)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -200
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("4_3e8j4")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

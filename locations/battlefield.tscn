@@ -1,11 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://bj3emfmsw2iq3"]
 
+[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="1_0cil5"]
 [ext_resource type="Texture2D" uid="uid://u623o4oqgkii" path="res://locations/background.png" id="2_78203"]
 [ext_resource type="PackedScene" uid="uid://d0b3i4hxgty3f" path="res://entities/player/player.tscn" id="2_ralfc"]
 [ext_resource type="Script" path="res://locations/Ui.gd" id="3_ajoqx"]
-[ext_resource type="PackedScene" uid="uid://bho0k88mb34fx" path="res://entities/enemies/melee_enemy.tscn" id="4_unxt0"]
 
 [node name="Battlefield" type="Node2D"]
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2(474, 266.5)
+
+[node name="EnemySpawner" type="Node" parent="Enemies"]
+script = ExtResource("1_0cil5")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -400
@@ -31,15 +37,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "HP : "
-
-[node name="MeleeEnemy" parent="." instance=ExtResource("4_unxt0")]
-position = Vector2(343, 293)
-
-[node name="MeleeEnemy2" parent="." instance=ExtResource("4_unxt0")]
-position = Vector2(626, 148)
-
-[node name="MeleeEnemy3" parent="." instance=ExtResource("4_unxt0")]
-position = Vector2(575, 427)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 255
