@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm5qq5kpf0u7u"]
+
+[ext_resource type="Script" path="res://parts/shotgun.gd" id="1_siyib"]
+[ext_resource type="Texture2D" uid="uid://dlj2w17u6qx88" path="res://parts/gun1.png" id="2_k7mkn"]
+
+[node name="Shotgun" type="Sprite2D"]
+script = ExtResource("1_siyib")
+
+[node name="ShootFrom" type="Node2D" parent="."]
+position = Vector2(29, -1)
+
+[node name="Gun4" type="Sprite2D" parent="."]
+position = Vector2(15, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_k7mkn")

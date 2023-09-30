@@ -13,18 +13,20 @@ var attached_to = null
 
 
 var other_parts = []
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in snap_point_parent.get_children():
 		snap_points.append([i,i.global_position])
 	_scan_for_others()
+	$TextureRect.texture = Stats.type_sprites[type]
+
 
 func _scan_for_others():
 	other_parts = []
 	for i in get_parent().get_children():
 		if i.is_in_group("part") and i != self and not i.is_queued_for_deletion():
 			other_parts.append(i)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
 func _process(delta: float) -> void:
 	if held:
 		position = get_global_mouse_position() - pivot_from.position

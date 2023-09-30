@@ -8,10 +8,12 @@ var rotational_velocity = 0
 @export var rotation_speed = 1.0
 @export var part_width = 50
 
+
+
 var shoot_timer : Timer
 
 var parts = []
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	
 	_load_parts()
@@ -23,18 +25,21 @@ func _ready() -> void:
 	shoot_timer.start()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var input = Vector2(Input.get_axis("left","right"),Input.get_axis("up","down"))
+	#if input.length() > 0:
+		#input = input.normalized()
+	#rotational_velocity += input.x * rotation_speed / 1000
+	#rotate(rotational_velocity)
+	#velocity += Vector2(0,input.y * acceleration).rotated(rotation)
+	#velocity *= drag
+	#rotational_velocity*= rotational_drag
 	if input.length() > 0:
 		input = input.normalized()
-	#position += input
-	rotational_velocity += input.x * rotation_speed / 1000
-	rotate(rotational_velocity)
-	velocity += Vector2(0,input.y * acceleration).rotated(rotation)
-	velocity *= drag
-	rotational_velocity*= rotational_drag
-	
+	velocity += input * acceleration * delta * (1.0 - Stats.weight/14.0)
+	velocity *= drag# - (Stats.weight/20)
+	print((1.0 - Stats.weight/14.0))
+	rotation = global_position.angle_to_point(get_global_mouse_position()) + PI /2
 	move_and_slide()
 	
 

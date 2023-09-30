@@ -7,7 +7,7 @@ var type = "basic"
 func _use():
 	pass
 
-func _create_bullet(direction,speed,damage,lifetime):
+func _create_bullet(direction,speed,damage,lifetime,destroy_on_impact = true,show_bullet = true):
 	var _new_bullet = bullet_node.instantiate()
 	bullet_parent.add_child(_new_bullet)
 	_new_bullet.global_position = shoot_from.global_position
@@ -17,3 +17,5 @@ func _create_bullet(direction,speed,damage,lifetime):
 	_new_bullet.lifetime = lifetime
 	_new_bullet.collision_layer = 1
 	_new_bullet.collision_mask = 8
+	_new_bullet.destroy_on_impact = destroy_on_impact
+	_new_bullet.visible = show_bullet

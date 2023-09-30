@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 	enemy_timer = Timer.new()
 	add_child(enemy_timer)
-	enemy_timer.wait_time = 0.1
+	enemy_timer.wait_time =1
 	enemy_timer.connect("timeout",Callable(self,"_create_enemy"))
 	enemy_timer.start()
 
@@ -26,7 +26,7 @@ func _create_enemy():
 	enemy_timer.wait_time *= difficulty_increase
 	enemy_timer.start()
 	var _new_enemy = enemies.pick_random()
-	if randf() < 1.08:
+	if randf() < 0.08:
 		_new_enemy = upgrade_node
 	_new_enemy = _new_enemy.instantiate()
 	get_parent().add_child(_new_enemy)

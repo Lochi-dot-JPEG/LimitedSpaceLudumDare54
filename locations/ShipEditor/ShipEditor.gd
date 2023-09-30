@@ -26,9 +26,10 @@ func _load_parts():
 		index += 1
 	if Stats.crate_reward != "":
 		var new_part = part_node.instantiate()
+		new_part.type = Stats.crate_reward
 		add_child(new_part)
 		
-		new_part.type = Stats.crate_reward
+		
 		Stats.crate_reward = ""
 		new_part.global_position = Vector2(856, 272)
 		new_part._scan_for_others()
@@ -44,7 +45,7 @@ func _on_button_pressed() -> void:
 			part_info[int(String(i.attached_to.name)) - 1] = i.type
 	
 	Stats.player_parts = part_info
-	
+	Stats._update_weight()
 	
 	get_tree().change_scene_to_file("res://locations/battlefield.tscn")
-
+	
