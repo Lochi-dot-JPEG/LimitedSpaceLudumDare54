@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj3emfmsw2iq3"]
+[gd_scene load_steps=6 format=3 uid="uid://bj3emfmsw2iq3"]
 
 [ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="1_0cil5"]
 [ext_resource type="Texture2D" uid="uid://u623o4oqgkii" path="res://locations/background.png" id="2_78203"]
 [ext_resource type="PackedScene" uid="uid://d0b3i4hxgty3f" path="res://entities/player/player.tscn" id="2_ralfc"]
 [ext_resource type="Script" path="res://locations/Ui.gd" id="3_ajoqx"]
+[ext_resource type="Script" path="res://locations/Camera2D.gd" id="5_ad7na"]
 
 [node name="Battlefield" type="Node2D"]
 
@@ -16,11 +17,11 @@ script = ExtResource("1_0cil5")
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.368627, 0.368627, 0.368627, 1)
 z_index = -400
-position = Vector2(474, 266.5)
+scale = Vector2(1.29937, 1.29937)
 texture = ExtResource("2_78203")
 
 [node name="Player" parent="." instance=ExtResource("2_ralfc")]
-position = Vector2(409, 154)
+position = Vector2(1, 4)
 
 [node name="Ui" type="CanvasLayer" parent="." groups=["ui"]]
 script = ExtResource("3_ajoqx")
@@ -32,16 +33,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Ui/Control"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "HP : "
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 255
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-541, -311)
+scale = Vector2(1.16424, 1.16424)
 polygon = PackedVector2Array(0, 0, 948, 0, 948, 533, 0, 533, -150, 663, 1212, 710, 1151, -198, -161, -232, -150, 663, 0, 533)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_ad7na")

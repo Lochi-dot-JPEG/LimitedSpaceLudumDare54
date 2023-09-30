@@ -16,7 +16,7 @@ var default_layout = [
 	null,#12
 ]
 var player_parts = default_layout
-
+var camera = null
 var type_sprites = {
 	"shotgun":preload("res://parts/gun1.png"),
 	"basic":preload("res://parts/gun4.png"),
@@ -68,6 +68,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _take_player_health(damage):
+	_shake(30)
+	_zoom(1.5)
 	Sound._play_sound("p_hit")
 	player_health -= damage
 	update_ui()
@@ -83,3 +85,11 @@ func update_ui():
 	
 	if ui != null:
 		ui._update()
+
+func _shake(amount):
+	if camera != null and is_instance_valid(camera):
+		camera._shake(amount)
+
+func _zoom(amount):
+	if camera != null and is_instance_valid(camera):
+		camera._zoom(amount)

@@ -13,6 +13,7 @@ config_version=5
 config/name="Limited Space"
 run/main_scene="res://locations/battlefield.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,6 +26,7 @@ Sound="*res://scripts/sound_master.gd"
 window/size/viewport_width=948
 window/size/viewport_height=533
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [dotnet]
 

@@ -18,6 +18,9 @@ func _ready() -> void:
 	enemy_ranges.append([Vector2(0,0),Vector2(view_size.x,0)])
 	enemy_ranges.append([Vector2(0,view_size.y),Vector2(view_size.x,view_size.y)])
 	
+	for i in 4:
+		enemy_ranges[i-1][0] -= view_size/2
+		enemy_ranges[i-1][1] -= view_size/2
 	
 	enemy_timer = Timer.new()
 	add_child(enemy_timer)

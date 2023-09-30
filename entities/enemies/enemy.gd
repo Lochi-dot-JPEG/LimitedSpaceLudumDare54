@@ -40,7 +40,7 @@ func _take_damage(damage):
 		Sound._play_sound("laser")
 		
 	else:
-		
+		Stats._shake(5)
 		Sound._play_sound("hit",-15 + damage * 4)
 	if hp <= 0:
 		Sound._play_sound("explosion",-10)
