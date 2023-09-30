@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func _create_enemy():
 	enemy_timer.wait_time *= difficulty_increase
-	enemy_timer.wait_time = clamp(enemy_timer.wait_time,0.3,100)
+	enemy_timer.wait_time = clamp(enemy_timer.wait_time,0.5,100)
 	Stats.enemy_spawn_rate = enemy_timer.wait_time
 	print("spawn_rate = " + str(enemy_timer.wait_time))
 	enemy_timer.start()

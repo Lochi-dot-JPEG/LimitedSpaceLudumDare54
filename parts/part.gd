@@ -20,3 +20,4 @@ func _create_bullet(direction,speed,damage,lifetime,destroy_on_impact = true,sho
 	
 	_new_bullet.destroy_on_impact = destroy_on_impact
 	_new_bullet.visible = show_bullet
+	return _new_bullet

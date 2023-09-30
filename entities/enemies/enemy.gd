@@ -36,7 +36,14 @@ func _area_entered(area):
 
 func _take_damage(damage):
 	hp -= damage
+	if damage == 0.25:
+		Sound._play_sound("laser")
+		
+	else:
+		
+		Sound._play_sound("hit",-15 + damage * 4)
 	if hp <= 0:
+		Sound._play_sound("explosion",-10)
 		queue_free()
 
 func _body_entered(_body):

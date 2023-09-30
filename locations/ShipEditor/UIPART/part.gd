@@ -68,6 +68,7 @@ func _on_button_up() -> void:
 	if closest_node == null or closest > _snap_from:
 		attached_to = null
 		return
+	Sound._play_sound("attach_part")
 	global_position = closest_node.global_position - Vector2(0,24)
 	rotation = global_position.angle_to_point(Vector2(445.5,250)) + PI
 	

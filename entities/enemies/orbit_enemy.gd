@@ -9,7 +9,7 @@ func _on_ready() -> void:
 	type = "e_orbit"
 	shoot_timer = Timer.new()
 	add_child(shoot_timer)
-	shoot_timer.wait_time = 2
+	shoot_timer.wait_time = 3.5
 	shoot_timer.connect("timeout",Callable(self,"_shoot"))
 	shoot_timer.start()
 

@@ -3,7 +3,7 @@ var enemy_spawn_rate = 3.0
 var base_spawn_rate = 3.0
 var default_layout = [
 	null, #1
-	null, #2
+	"shotgun", #2
 	null,
 	null,#4
 	null,
@@ -23,9 +23,9 @@ var type_sprites = {
 	"laser":preload("res://parts/gun3.png"),
 }
 var damage = {
-	"shotgun":0.25,
+	"shotgun":0.8,
 	"basic":3,
-	"laser":0.5,
+	"laser":0.25,
 	"e_melee":1,
 	"e_orbit":1,
 	"e_dart":1,
@@ -34,7 +34,7 @@ var damage = {
 var speed = {
 	"shotgun":800,
 	"basic":500,
-	"laser":4000,
+	"laser":3000,
 	"e_orbit":300,
 	"e_dart":300,
 }
@@ -68,6 +68,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _take_player_health(damage):
+	Sound._play_sound("p_hit")
 	player_health -= damage
 	update_ui()
 

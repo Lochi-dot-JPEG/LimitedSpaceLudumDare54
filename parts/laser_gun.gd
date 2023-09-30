@@ -10,4 +10,6 @@ func _use():
 
 func _shoot():
 	var _dir = Vector2(cos(global_rotation),sin(global_rotation))
-	_create_bullet(_dir,Stats.speed[type],Stats.damage[type],Stats.lifetime[type],false,false)
+	var bullet = _create_bullet(_dir,Stats.speed[type],Stats.damage[type],Stats.lifetime[type],false,false)
+	
+	bullet.scale *= 2

@@ -69,5 +69,11 @@ func _load_parts():
 
 
 func _shoot():
+	var part_sound_count = 0
+	
 	for i in parts:
 		i._use()
+		if i.type != "laser":
+			part_sound_count += 1
+	if part_sound_count > 0:
+		Sound._play_sound("shoot",-25 + part_sound_count * 2)

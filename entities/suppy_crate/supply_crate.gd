@@ -23,5 +23,6 @@ func _area_entered(_area):
 func _body_entered(body):
 	print(body)
 	if body.is_in_group("player"):
+		Sound._play_sound("powerup")
 		Stats.crate_reward = Stats.parts.keys().pick_random()
 		get_tree().call_deferred("change_scene_to_file","res://locations/ShipEditor/ShipEditor.tscn")

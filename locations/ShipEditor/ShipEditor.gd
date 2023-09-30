@@ -45,6 +45,6 @@ func _on_button_pressed() -> void:
 	
 	Stats.player_parts = part_info
 	Stats._update_weight()
-	
+	Sound._play_sound("return")
 	get_tree().change_scene_to_file("res://locations/battlefield.tscn")
 	
