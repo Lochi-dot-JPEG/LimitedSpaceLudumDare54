@@ -1,6 +1,7 @@
 extends Node
-
-var player_parts = [
+var enemy_spawn_rate = 3.0
+var base_spawn_rate = 3.0
+var default_layout = [
 	null, #1
 	null, #2
 	null,
@@ -9,11 +10,12 @@ var player_parts = [
 	null,#6
 	null,
 	null,#8
-	"laser",
-	null,#10
-	"basic",
+	null,
+	"basic",#10
+	null,
 	null,#12
 ]
+var player_parts = default_layout
 
 var type_sprites = {
 	"shotgun":preload("res://parts/gun1.png"),
@@ -25,16 +27,24 @@ var damage = {
 	"basic":3,
 	"laser":0.5,
 	"e_melee":1,
+	"e_orbit":1,
+	"e_dart":1,
+	
 }
 var speed = {
 	"shotgun":800,
 	"basic":500,
 	"laser":4000,
+	"e_orbit":300,
+	"e_dart":300,
 }
 var lifetime = {
 	"shotgun":0.3,
 	"basic":10,
 	"laser":0.5,
+	"e_orbit":20,
+	"e_dart":20,
+	
 }
 var parts = {
 	"basic":preload("res://parts/basic_gun.tscn"),
@@ -44,6 +54,8 @@ var parts = {
 
 var hp = {
 	"e_melee":14,
+	"e_orbit":9,
+	"e_dart":9,
 	"supply_crate":9999999,
 }
 

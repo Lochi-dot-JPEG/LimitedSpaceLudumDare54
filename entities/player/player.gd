@@ -38,7 +38,6 @@ func _process(delta: float) -> void:
 		input = input.normalized()
 	velocity += input * acceleration * delta * (1.0 - Stats.weight/14.0)
 	velocity *= drag# - (Stats.weight/20)
-	print((1.0 - Stats.weight/14.0))
 	rotation = global_position.angle_to_point(get_global_mouse_position()) + PI /2
 	move_and_slide()
 	
@@ -51,8 +50,6 @@ func _load_parts():
 			child.queue_free()
 	var ship_sides = Stats.player_parts
 	var _add_to = 0
-	print(ship_sides)
-	
 	
 	var _point_in = 0
 	for i in ship_sides:

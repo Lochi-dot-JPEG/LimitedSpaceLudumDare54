@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhptihgty4sb2"]
+
+[ext_resource type="Script" path="res://entities/enemies/orbit_enemy.gd" id="1_hak0a"]
+[ext_resource type="Texture2D" uid="uid://cgjlledjpuqc8" path="res://entities/enemies/orbit_enemy.png" id="2_57flt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qytlw"]
+size = Vector2(28, 20)
+
+[node name="OrbitEnemy" type="Area2D"]
+script = ExtResource("1_hak0a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_57flt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qytlw")
+
+[node name="ShootFrom" type="Node2D" parent="."]
+position = Vector2(16, 0)

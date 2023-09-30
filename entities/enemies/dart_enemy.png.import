@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt3uqaigy1bnr"
-path="res://.godot/imported/melee_enemy.png-ece22198352a51d46d16944069ba22ac.ctex"
+uid="uid://bw6pt14dev6xm"
+path="res://.godot/imported/dart_enemy.png-ed08c2f349329bda14f806d7be628a44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/melee_enemy.png"
-dest_files=["res://.godot/imported/melee_enemy.png-ece22198352a51d46d16944069ba22ac.ctex"]
+source_file="res://entities/enemies/dart_enemy.png"
+dest_files=["res://.godot/imported/dart_enemy.png-ed08c2f349329bda14f806d7be628a44.ctex"]
 
 [params]
 

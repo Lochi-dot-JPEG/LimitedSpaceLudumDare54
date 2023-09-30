@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnf4rx131mecn"]
+
+[ext_resource type="Script" path="res://entities/enemies/dart_enemy.gd" id="1_dps1j"]
+[ext_resource type="Texture2D" uid="uid://bw6pt14dev6xm" path="res://entities/enemies/dart_enemy.png" id="2_nn4cu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qytlw"]
+size = Vector2(28, 20)
+
+[node name="DartEnemy" type="Area2D"]
+script = ExtResource("1_dps1j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nn4cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qytlw")
+
+[node name="ShootFrom" type="Node2D" parent="."]
+position = Vector2(16, 0)

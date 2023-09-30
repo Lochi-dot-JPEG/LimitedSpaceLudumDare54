@@ -41,7 +41,6 @@ func _on_button_pressed() -> void:
 	part_info.resize(12)
 	for i in get_tree().get_nodes_in_group("part"):
 		if not i.attached_to == null:
-			print(i.attached_to.name)
 			part_info[int(String(i.attached_to.name)) - 1] = i.type
 	
 	Stats.player_parts = part_info

@@ -15,11 +15,11 @@ func _on_ready() -> void:
 	connect("body_entered",Callable(self,"_body_entered"))
 
 
-func _area_entered(area):
+func _area_entered(_area):
 	pass
 	# this is here so that the crate cant take damage
 
-#
+
 func _body_entered(body):
 	print(body)
 	if body.is_in_group("player"):

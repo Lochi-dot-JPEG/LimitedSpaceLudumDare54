@@ -14,6 +14,7 @@ position = Vector2(474, 266.5)
 script = ExtResource("1_0cil5")
 
 [node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.368627, 0.368627, 0.368627, 1)
 z_index = -400
 position = Vector2(474, 266.5)
 texture = ExtResource("2_78203")

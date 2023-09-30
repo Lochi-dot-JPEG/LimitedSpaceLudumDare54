@@ -7,6 +7,12 @@ var destroy_on_impact = true
 
 var lifetime = 1
 
+func _ready() -> void:
+	if collision_layer == 2:
+		$PlayerBullet.hide()
+		$EnemyBullet.show()
+
+
 func _physics_process(delta: float) -> void:
 	position += direction * delta * speed
 	lifetime -= delta
