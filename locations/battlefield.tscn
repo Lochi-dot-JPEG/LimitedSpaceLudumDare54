@@ -1,14 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj3emfmsw2iq3"]
+[gd_scene load_steps=5 format=3 uid="uid://bj3emfmsw2iq3"]
 
-[ext_resource type="PackedScene" uid="uid://d0b3i4hxgty3f" path="res://entities/player.tscn" id="1_6vte4"]
 [ext_resource type="Texture2D" uid="uid://u623o4oqgkii" path="res://locations/background.png" id="2_78203"]
+[ext_resource type="PackedScene" uid="uid://d0b3i4hxgty3f" path="res://entities/player/player.tscn" id="2_ralfc"]
+[ext_resource type="Script" path="res://locations/Ui.gd" id="3_ajoqx"]
+[ext_resource type="PackedScene" uid="uid://bho0k88mb34fx" path="res://entities/enemies/melee_enemy.tscn" id="4_unxt0"]
 
 [node name="Battlefield" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_6vte4")]
-acceleration = 5
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -400
 position = Vector2(474, 266.5)
 texture = ExtResource("2_78203")
+
+[node name="Player" parent="." instance=ExtResource("2_ralfc")]
+position = Vector2(409, 154)
+
+[node name="Ui" type="CanvasLayer" parent="." groups=["ui"]]
+script = ExtResource("3_ajoqx")
+
+[node name="Control" type="Control" parent="Ui"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Ui/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HP : "
+
+[node name="MeleeEnemy" parent="." instance=ExtResource("4_unxt0")]
+position = Vector2(343, 293)
+
+[node name="MeleeEnemy2" parent="." instance=ExtResource("4_unxt0")]
+position = Vector2(626, 148)
+
+[node name="MeleeEnemy3" parent="." instance=ExtResource("4_unxt0")]
+position = Vector2(575, 427)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 255
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 948, 0, 948, 533, 0, 533, -150, 663, 1212, 710, 1151, -198, -161, -232, -150, 663, 0, 533)

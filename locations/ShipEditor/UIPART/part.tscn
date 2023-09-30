@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg4wl7g2ihmqq"]
+
+[ext_resource type="Script" path="res://locations/ShipEditor/UIPART/part.gd" id="1_hr6lm"]
+[ext_resource type="Texture2D" uid="uid://c7jgeasirx6o1" path="res://entities/player/ship.png" id="2_nw1n2"]
+
+[node name="Part" type="Button" groups=["part"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -474.0
+offset_top = -290.5
+offset_right = -418.0
+offset_bottom = -245.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 24)
+script = ExtResource("1_hr6lm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -19.5
+offset_right = 57.0
+offset_bottom = 20.5
+grow_vertical = 2
+texture = ExtResource("2_nw1n2")
+
+[node name="PivotFrom" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = 1.5
+offset_right = -11.0
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

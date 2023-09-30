@@ -1,11 +1,14 @@
 extends CharacterBody2D
-@onready var attach_points: Node2D = $AttachPoints
+@onready var attach_point: Node2D = $AttachPoint
 
 @export var drag = 0.98
 @export var acceleration = 5
 @export var rotational_drag = 0.8
 var rotational_velocity = 0
+@export var rotation_speed = 1.0
 @export var part_width = 50
+
+var parts = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_load_parts()
@@ -17,43 +20,43 @@ func _process(delta: float) -> void:
 	if input.length() > 0:
 		input = input.normalized()
 	#position += input
-	rotational_velocity += input.x / 100
+	rotational_velocity += input.x * rotation_speed / 1000
 	rotate(rotational_velocity)
 	velocity += Vector2(0,input.y * acceleration).rotated(rotation)
 	velocity *= drag
 	rotational_velocity*= rotational_drag
 	
 	move_and_slide()
+	
 
 func _load_parts():
 	
 	
-	for i in attach_points.get_children():
+	for i in attach_point.get_children():
 		for child in i.get_children():
 			child.queue_free()
 	var ship_sides = Stats.player_parts
 	var _add_to = 0
 	print(ship_sides)
 	
+	
+	var _point_in = 0
 	for i in ship_sides:
-		print(i)
-		var _part_parent = attach_points.get_child(_add_to)
-		var total_width = part_width *( i.size() - 1)
-		var point_direction = _part_parent.target_position.angle()
-		var align_along = abs(_part_parent.target_position.rotated(deg_to_rad(90)).normalized())
+		if i == null:
+			_point_in += TAU/12
+			continue
 		var _current_part = 0
-		for part in i:
-			
-			var _new_part = Stats.parts[part].instantiate()
-			_part_parent.add_child(_new_part)
-			var pos = _part_parent.global_position
-			var _offset = total_width / i.size() * _current_part - total_width / 3
-			pos += align_along * Vector2(_offset,_offset)
-			print(align_along)
-			_new_part.global_position = pos
-			_new_part.global_rotation = _part_parent.global_rotation + point_direction
-			_current_part += 1
-		_add_to += 1
+		var _new_part = Stats.parts[i].instantiate()
+		attach_point.add_child(_new_part)
+		
+		_new_part.global_position = attach_point.global_position
+		_new_part.global_rotation = _point_in
+		_new_part.offset = Vector2(15,0)
+		_current_part += 1
+		_point_in += TAU/12
+		parts.append(_new_part)
 
-func _save_parts():
-	pass
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("shoot"):
+		for i in parts:
+			i._use()

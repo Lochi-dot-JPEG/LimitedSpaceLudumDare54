@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bho0k88mb34fx"]
+
+[ext_resource type="Script" path="res://entities/enemies/melee_enemy.gd" id="1_af2ag"]
+[ext_resource type="Texture2D" uid="uid://cgjlledjpuqc8" path="res://entities/enemies/melee_enemy.png" id="2_5ukpt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi1oa"]
+size = Vector2(32, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuwrh"]
+size = Vector2(23, 8)
+
+[node name="MeleeEnemy" type="Area2D"]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_af2ag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qi1oa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5ukpt")
+
+[node name="AttackPlayer" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackPlayer"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_tuwrh")

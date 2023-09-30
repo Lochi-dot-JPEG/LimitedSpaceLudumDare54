@@ -1,0 +1,312 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd3fn0m6xnf0"]
+
+[ext_resource type="Script" path="res://locations/ShipEditor/ShipEditor.gd" id="1_1y200"]
+[ext_resource type="Texture2D" uid="uid://c7jgeasirx6o1" path="res://entities/player/ship.png" id="2_j824b"]
+[ext_resource type="PackedScene" uid="uid://bg4wl7g2ihmqq" path="res://locations/ShipEditor/UIPART/part.tscn" id="3_cuk5q"]
+
+[node name="ShipEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1y200")
+
+[node name="Ship" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -16.0
+offset_right = 28.5
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.57079
+scale = Vector2(8, 8)
+pivot_offset = Vector2(16.4561, 16.5378)
+texture = ExtResource("2_j824b")
+
+[node name="Snap_Points" type="Control" parent="Ship"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.21077
+offset_top = -7.08171
+offset_right = 48.2108
+offset_bottom = 32.9183
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+
+[node name="1" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.54395
+offset_top = 0.412842
+offset_right = -3.54395
+offset_bottom = 0.412842
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="2" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.53845
+offset_top = 5.03311
+offset_right = -4.53845
+offset_bottom = 5.03311
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="3" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.53845
+offset_top = 8.03311
+offset_right = -7.53845
+offset_bottom = 8.03311
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="4" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0385
+offset_top = 9.03784
+offset_right = -12.0385
+offset_bottom = 9.03784
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="5" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5385
+offset_top = 8.03311
+offset_right = -16.5385
+offset_bottom = 8.03311
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="6" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5439
+offset_top = 5.03784
+offset_right = -19.5439
+offset_bottom = 5.03784
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="7" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5439
+offset_top = 0.412842
+offset_right = -20.5439
+offset_bottom = 0.412842
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="8" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5439
+offset_top = -3.96216
+offset_right = -19.5439
+offset_bottom = -3.96216
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="9" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5439
+offset_top = -6.96216
+offset_right = -16.5439
+offset_bottom = -6.96216
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="10" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.5439
+offset_top = -7.96216
+offset_right = -12.5439
+offset_bottom = -7.96216
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="11" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.54395
+offset_top = -6.96216
+offset_right = -7.54395
+offset_bottom = -6.96216
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="12" type="Control" parent="Ship/Snap_Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.54395
+offset_top = -3.96216
+offset_right = -4.54395
+offset_bottom = -3.96216
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Part" parent="." instance=ExtResource("3_cuk5q")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 220.0
+offset_top = 135.0
+offset_right = 276.0
+offset_bottom = 180.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Part2" parent="." instance=ExtResource("3_cuk5q")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 707.0
+offset_top = 215.0
+offset_right = 763.0
+offset_bottom = 260.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Part3" parent="." instance=ExtResource("3_cuk5q")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 596.0
+offset_top = 27.0
+offset_right = 652.0
+offset_bottom = 72.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Part4" parent="." instance=ExtResource("3_cuk5q")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 687.0
+offset_top = 414.0
+offset_right = 743.0
+offset_bottom = 459.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Drag ship parts on ship to attach,
+
+If a part isn't attached it will be discarded
+
+The higher your ships weight the more 
+difficult it will be to control.
+"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -36.0
+offset_right = 331.0
+offset_bottom = -13.0
+grow_vertical = 0
+text = "Weight :"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -116.0
+offset_right = 64.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
