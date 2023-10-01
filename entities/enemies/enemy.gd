@@ -11,6 +11,7 @@ static var bullet_node = preload("res://entities/bullet/bullet.tscn")
 var move_speed = 150
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("save_this")
 	_on_ready()
 	collision_layer = 8
 	collision_mask = 9
@@ -37,13 +38,17 @@ func _area_entered(area):
 func _take_damage(damage):
 	hp -= damage
 	if damage == 0.25:
-		Sound._play_sound("laser")
+		Stats._shake(1)
 		
+		Sound._play_sound("laser",-10)
+		#pass
 	else:
+		Stats._hitstop(1)
 		Stats._shake(5)
 		Sound._play_sound("hit",-15 + damage * 4)
 	if hp <= 0:
 		Sound._play_sound("explosion",-10)
+		Stats._add_score(100)
 		queue_free()
 
 func _body_entered(_body):

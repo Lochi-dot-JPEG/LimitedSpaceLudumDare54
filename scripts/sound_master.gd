@@ -1,7 +1,7 @@
 extends Node
 
 var sounds = {
-	"music":preload("res://sounds/fight_looped.wav"),
+	"music":preload("res://sounds/limited_in_space.ogg"),
 	"attach_part":preload("res://sounds/attach_part.wav"), 
 	"explosion":preload("res://sounds/explosion.wav"), 
 	"laser":preload("res://sounds/laser.wav"), 

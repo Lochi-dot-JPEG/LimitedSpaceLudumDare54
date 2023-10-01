@@ -26,6 +26,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	Stats._add_score(delta * 10)
 	var input = Vector2(Input.get_axis("left","right"),Input.get_axis("up","down"))
 	#if input.length() > 0:
 		#input = input.normalized()
@@ -38,7 +39,7 @@ func _process(delta: float) -> void:
 		input = input.normalized()
 	velocity += input * acceleration * delta * (1.0 - Stats.weight/14.0)
 	velocity *= drag# - (Stats.weight/20)
-	rotation = global_position.angle_to_point(get_global_mouse_position()) + PI /2
+	$Ship.rotation = velocity.angle()
 	move_and_slide()
 	
 
@@ -77,3 +78,9 @@ func _shoot():
 			part_sound_count += 1
 	if part_sound_count > 0:
 		Sound._play_sound("shoot",-25 + part_sound_count * 2)
+
+
+func _on_damage_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		Stats._take_player_health(area.damage)
+		area.queue_free()

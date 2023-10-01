@@ -36,10 +36,51 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Ui/Control"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00843882
+anchor_top = 0.0206379
+anchor_right = 0.00843882
+anchor_bottom = 0.0206379
 offset_right = 40.0
 offset_bottom = 23.0
 text = "HP : "
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="Ui/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00316456
+anchor_top = 0.953096
+anchor_right = 0.114979
+anchor_bottom = 0.953096
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press E to edit ship"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Ui/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0105485
+anchor_top = 0.0562852
+anchor_right = 0.112869
+anchor_bottom = 0.0562852
+offset_right = 40.0
+offset_bottom = 23.0
+text = "SCORE : 00000000"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Ui/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0105485
+anchor_top = 0.0938086
+anchor_right = 0.112869
+anchor_bottom = 0.0938086
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HISCORE : 00000000"
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

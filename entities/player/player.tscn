@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0b3i4hxgty3f"]
+[gd_scene load_steps=5 format=3 uid="uid://d0b3i4hxgty3f"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_ultfj"]
 [ext_resource type="Texture2D" uid="uid://c7jgeasirx6o1" path="res://entities/player/ship.png" id="2_qip88"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_whon8"]
 radius = 17.0294
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q57bo"]
+size = Vector2(28, 30)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 4
@@ -21,6 +24,16 @@ shape = SubResource("CircleShape2D_whon8")
 [node name="AttachPoint" type="Node2D" parent="."]
 
 [node name="Ship" type="Sprite2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(-0.0840378, -0.0560951)
 rotation = -1.5708
 texture = ExtResource("2_qip88")
+offset = Vector2(11.9439, 0.084081)
+
+[node name="DamageBox" type="Area2D" parent="." groups=["player_damage"]]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox"]
+shape = SubResource("RectangleShape2D_q57bo")
+
+[connection signal="area_entered" from="DamageBox" to="." method="_on_damage_box_area_entered"]

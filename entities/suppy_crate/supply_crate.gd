@@ -1,6 +1,7 @@
 extends Enemy
 
 func _ready() -> void:
+	add_to_group("save_this")
 	_on_ready()
 	# here to remove collision layer and mask change
 	hp = Stats.hp[type]
@@ -11,7 +12,7 @@ func _on_ready() -> void:
 	await get_tree().physics_frame
 	type = "supply_crate"
 	var _inaccuracy_offset = Vector2(randi_range(-100,100),randi_range(-100,100))
-	_queue_move_to_point(Vector2(475,275) + _inaccuracy_offset)
+	_queue_move_to_point(Vector2.ZERO + _inaccuracy_offset)
 	connect("body_entered",Callable(self,"_body_entered"))
 
 
@@ -23,6 +24,8 @@ func _area_entered(_area):
 func _body_entered(body):
 	print(body)
 	if body.is_in_group("player"):
+		remove_from_group('save_this')
 		Sound._play_sound("powerup")
 		Stats.crate_reward = Stats.parts.keys().pick_random()
+		get_node("../EnemySpawner")._save_enemies()
 		get_tree().call_deferred("change_scene_to_file","res://locations/ShipEditor/ShipEditor.tscn")

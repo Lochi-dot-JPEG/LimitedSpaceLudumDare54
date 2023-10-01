@@ -27,13 +27,9 @@ func _scan_for_others():
 			other_parts.append(i)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if held:
 		position = get_global_mouse_position() - pivot_from.position
-		
-		#rotation = global_position.angle_to_po/int(Vector2(445.5,250)) + PI
-		pass
-
 
 func _input(event: InputEvent) -> void:
 	if held and event is InputEventMouseMotion:
@@ -70,10 +66,10 @@ func _on_button_up() -> void:
 		return
 	Sound._play_sound("attach_part")
 	global_position = closest_node.global_position - Vector2(0,24)
-	rotation = global_position.angle_to_point(Vector2(445.5,250)) + PI
+	rotation = closest_node.global_position.angle_to_point(Vector2(461,266)) + PI
 	
 func _attach_to_part(index):
 	global_position = snap_points[index][1] - Vector2(0,24)
 	print(global_position)
 	attached_to = snap_points[index][0]
-	rotation = global_position.angle_to_point(Vector2(445.5,250)) + PI
+	rotation = (global_position + Vector2(0,24)).angle_to_point(Vector2(461,266)) + PI
