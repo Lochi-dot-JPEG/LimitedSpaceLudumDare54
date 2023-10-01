@@ -61,7 +61,6 @@ func _queue_move_to_point(target : Vector2) -> void:
 		move_tween = create_tween().set_trans(Tween.TRANS_SINE)
 	
 	var time = target.distance_to(global_position) / move_speed
-#
 	rotation = global_position.angle_to_point(target)
 	move_tween.tween_property(self,"global_position",target,time)
 

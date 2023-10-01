@@ -27,5 +27,7 @@ func _body_entered(body):
 		remove_from_group('save_this')
 		Sound._play_sound("powerup")
 		Stats.crate_reward = Stats.parts.keys().pick_random()
+		if is_instance_valid(Stats.player):
+			Stats.player_position_save = Stats.player.position
 		get_node("../EnemySpawner")._save_enemies()
 		get_tree().call_deferred("change_scene_to_file","res://locations/ShipEditor/ShipEditor.tscn")

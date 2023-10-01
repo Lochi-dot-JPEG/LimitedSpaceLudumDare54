@@ -14,7 +14,7 @@ var enemy_choices = [
 	"e_melee","e_orbit","e_dart"
 ]
 #var upgrade_node = 
-var difficulty_increase = 0.97
+var difficulty_increase = 0.98
 var enemy_timer : Timer
 
 
@@ -39,13 +39,15 @@ func _ready() -> void:
 	_load_enemies()
 
 func _create_enemy():
+	
+	
 	enemy_timer.wait_time *= difficulty_increase
-	enemy_timer.wait_time = clamp(enemy_timer.wait_time,0.5,100)
+	enemy_timer.wait_time = clamp(enemy_timer.wait_time,0.35,100)
 	Stats.enemy_spawn_rate = enemy_timer.wait_time
 	print("spawn_rate = " + str(enemy_timer.wait_time))
 	enemy_timer.start()
 	var _new_enemy = enemy_choices.pick_random()
-	if enemies_since_last > 5 and randf() < 0.3:
+	if enemies_since_last > 4 and randf() < 0.5 * clamp(enemy_timer.wait_time/3,0.01,1):
 		_new_enemy = "supply_crate"
 		enemies_since_last = 1
 		print("new_supply crate")
@@ -54,20 +56,27 @@ func _create_enemy():
 	get_parent().add_child(_new_enemy)
 	var _range = enemy_ranges.pick_random()
 	_new_enemy.global_position = Vector2(randi_range(_range[0].x,_range[1].x),randi_range(_range[0].y,_range[1].y))
+	
+
 
 func _save_enemies():
 	var _en = []
 	for i in get_parent().get_children():
 		if i == self or not i.is_in_group("save_this"):
 			continue
-		_en.append([i.type,i.hp,i.position])
+		_en.append([i.type,i.hp,i.position,i.rotation])
 	Stats.enemy_position_save = _en
 
 func _load_enemies():
 	await get_parent().ready
+	var _unpause_timer = get_tree().create_timer(2)
 	var _loaded_enemies = Stats.enemy_position_save
 	for i in _loaded_enemies:
 		var _new_enemy = enemies[i[0]].instantiate()
 		get_parent().add_child(_new_enemy)
 		_new_enemy.hp = i[1]
 		_new_enemy.position = i[2]
+		_new_enemy.process_mode = PROCESS_MODE_DISABLED
+		_new_enemy.rotation = i[3]
+		
+		_unpause_timer.connect("timeout",Callable(_new_enemy,"set_process_mode").bind(PROCESS_MODE_INHERIT))

@@ -47,18 +47,6 @@ offset_bottom = 23.0
 text = "HP : "
 metadata/_edit_use_anchors_ = true
 
-[node name="Label4" type="Label" parent="Ui/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00316456
-anchor_top = 0.953096
-anchor_right = 0.114979
-anchor_bottom = 0.953096
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Press E to edit ship"
-metadata/_edit_use_anchors_ = true
-
 [node name="Label2" type="Label" parent="Ui/Control"]
 layout_mode = 1
 anchors_preset = -1

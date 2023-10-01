@@ -15,7 +15,8 @@ var shoot_timer : Timer
 var parts = []
 
 func _ready() -> void:
-	
+	Stats.player = self
+	position = Stats.player_position_save
 	_load_parts()
 	
 	shoot_timer = Timer.new()

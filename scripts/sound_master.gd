@@ -25,9 +25,11 @@ func _ready():
 func _switch_music(track_name, volume = -20):
 	music_node.volume_db = volume
 	music_node.stream = sounds[track_name]
-	
 	music_node.play()
 
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.physical_keycode ==  77 and event.is_pressed():
+		music_node.volume_db = linear_to_db(0) if music_node.volume_db == -10 else -10
 
 func _play_sound(sound = "shing1", volume = 0,pitchvariance := 0.0):
 	var soundinstance = AudioStreamPlayer.new()

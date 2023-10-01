@@ -7,9 +7,13 @@ var direction : Vector2
 @onready var view_size = Vector2(ProjectSettings.get_setting_with_override("display/window/size/viewport_width"),ProjectSettings.get_setting_with_override("display/window/size/viewport_height"))
 var _check_direction_timer = 0.0
 var _range = []
+var just_appeared = true
 func _physics_process(_delta: float) -> void:
 	if not move_tween or not move_tween.is_running():
-		_shoot()
+		if just_appeared:
+			just_appeared = false
+		else:
+			_shoot()
 		var pos = Vector2(randi_range(_range[0].x,_range[1].x),randi_range(_range[0].y,_range[1].y))
 		while pos == global_position:
 			pos = Vector2(randi_range(_range[0].x,_range[1].x),randi_range(_range[0].y,_range[1].y))

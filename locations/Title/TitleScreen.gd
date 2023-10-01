@@ -14,3 +14,7 @@ func _ready():
 		$High.show()
 		$High.text = "HISCORE : " + str(int(Stats.high_score))
 		$Last.text = "SCORE : " + str(int(Stats.score))
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://locations/Guide/Guide.tscn")

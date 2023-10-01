@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd3fn0m6xnf0"]
+[gd_scene load_steps=4 format=3 uid="uid://bd3fn0m6xnf0"]
 
 [ext_resource type="Script" path="res://locations/ShipEditor/ShipEditor.gd" id="1_1y200"]
 [ext_resource type="Texture2D" uid="uid://c7jgeasirx6o1" path="res://entities/player/ship.png" id="2_j824b"]
-[ext_resource type="PackedScene" uid="uid://bg4wl7g2ihmqq" path="res://locations/ShipEditor/UIPART/part.tscn" id="3_cuk5q"]
 [ext_resource type="Texture2D" uid="uid://u623o4oqgkii" path="res://locations/background.png" id="4_3e8j4"]
 
 [node name="ShipEditor" type="Control"]
@@ -215,62 +214,6 @@ offset_bottom = -3.96216
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Part" parent="." instance=ExtResource("3_cuk5q")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 220.0
-offset_top = 135.0
-offset_right = 276.0
-offset_bottom = 180.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="Part2" parent="." instance=ExtResource("3_cuk5q")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 707.0
-offset_top = 215.0
-offset_right = 763.0
-offset_bottom = 260.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="Part3" parent="." instance=ExtResource("3_cuk5q")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 596.0
-offset_top = 27.0
-offset_right = 652.0
-offset_bottom = 72.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="Part4" parent="." instance=ExtResource("3_cuk5q")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 687.0
-offset_top = 414.0
-offset_right = 743.0
-offset_bottom = 459.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 16.0
@@ -281,21 +224,8 @@ text = "Drag ship parts on ship to attach,
 
 If a part isn't attached it will be discarded
 
-The higher your ships weight the more 
-difficult it will be to control.
-"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -36.0
-offset_right = 331.0
-offset_bottom = -13.0
-grow_vertical = 0
-text = "Weight :"
+The more parts you attach to your ship,
+the harder it will be to move."
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

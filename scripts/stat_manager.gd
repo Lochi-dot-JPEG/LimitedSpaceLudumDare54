@@ -1,7 +1,7 @@
 extends Node
-var enemy_spawn_rate = 3.0
+var enemy_spawn_rate = 2.0
 var base_spawn_rate = 3.0
-
+var player = null
 var previous_score = 0
 var high_score = 0
 var default_layout = [
@@ -56,9 +56,9 @@ var parts = {
 }
 
 var hp = {
-	"e_melee":14,
-	"e_orbit":9,
-	"e_dart":9,
+	"e_melee":10,
+	"e_orbit":8,
+	"e_dart":8,
 	"supply_crate":9999999,
 }
 
